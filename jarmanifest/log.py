@@ -21,7 +21,7 @@ def setLoggingLevel(tovalue,logger=None):
 	if logger is None:
 		for logger in loggers:
 			loggers[logger].setLevel(logginglevel)
-	elif logger in loggers.keys():
+	elif logger in list(loggers.keys()):
 		loggers[logger].setLevel(logginglevel)
 
 def debugmode():
@@ -38,7 +38,7 @@ def getLogger(logger='default',level=None):
 	if not configured:
 		configureLogging()
 
-	if logger not in loggers.keys():
+	if logger not in list(loggers.keys()):
 		loggers[logger] = logging.getLogger(logger)
 
 	if level is not None:

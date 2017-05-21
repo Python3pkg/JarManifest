@@ -49,10 +49,10 @@ def getAttributes(manifestFile):
 							continue
 					break
 		elif len(current)>0 :
-			count = len(current.values())
+			count = len(list(current.values()))
 			# We need to weed out name only entries
 			# We can manually interrogate packages
-			if count > 1 or (count==1 and 'name' not in current.keys()):
+			if count > 1 or (count==1 and 'name' not in list(current.keys())):
 				manifest.append(current)
 			current = {}
 		idx += 1
